@@ -9,7 +9,7 @@ from odoo.exceptions import UserError
 class IrActionsServer(models.Model):
     _inherit = "ir.actions.server"
 
-    state = fields.Selection(selection_add=[("navigate", "Navigate")])
+    state = fields.Selection(selection_add=[("navigate", "Navigate")], ondelete={"navigate": "set default"})
 
     navigate_action_id = fields.Many2one(
         string="Navigation Action",
